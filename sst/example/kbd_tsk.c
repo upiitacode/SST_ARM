@@ -16,19 +16,15 @@
 *****************************************************************************/
 #include "sst_port.h"
 #include "sst_exa.h"
-#include "bsp.h"
 
 /*..........................................................................*/
 void kbdTask(SSTEvent e) {
     static uint32_t kbdTaskCtr;
 
-    Video_printNumAt(22, 19 - KBD_TASK_PRIO, VIDEO_FGND_YELLOW, ++kbdTaskCtr);
     busyDelay();                                     /* for testing, NOTE01 */
 
     switch (e.sig) {
         case INIT_SIG: {
-            Video_printStrAt( 1, 19 - KBD_TASK_PRIO,
-                             VIDEO_FGND_WHITE, "kbdTask");
             break;
         }
         case KBD_SIG: {

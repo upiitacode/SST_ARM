@@ -17,6 +17,8 @@
 #ifndef sst_exa_h
 #define sst_exa_h
 
+#include "sst.h"
+
 void tickTaskA(SSTEvent e);
 void tickTaskB(SSTEvent e);
 void kbdTask(SSTEvent e);
@@ -38,6 +40,8 @@ enum SSTPriorities {     /* the SST priorities don't need to be consecutive */
     KBD_ISR_PRIO     = 0xFF - 1,
     TICK_ISR_PRIO    = 0xFF
 };
+
+void busyDelay(void);
 
 #endif                                                         /* sst_exa_h */
 
