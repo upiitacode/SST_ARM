@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>..\sst\example;..\sst\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -407,6 +407,33 @@
       <Groups>
         <Group>
           <GroupName>Source Group 1</GroupName>
+          <Files>
+            <File>
+              <FileName>bsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\sst\example\bsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>kbd_tsk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\sst\example\kbd_tsk.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\sst\example\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>tick_tsk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\sst\example\tick_tsk.c</FilePath>
+            </File>
+            <File>
+              <FileName>sst.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\sst\source\sst.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
