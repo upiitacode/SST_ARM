@@ -18,13 +18,14 @@
 #define sst_port_h
 
                                          /* SST interrupt locking/unlocking */
-#define SST_INT_LOCK()   disable()
-#define SST_INT_UNLOCK() enable()
+#define SST_INT_LOCK()   __disable_IRQ()
+#define SST_INT_UNLOCK() __enable_IRQ()
+																					/*SST End of Interrupt Command*/		
+#define EOI_COMMAND() NVIC_SetPendingIRQ(PendSV_IRQn)
                                                /* maximum SST task priority */
 #define SST_MAX_PRIO     8
 
-#include <dos.h>                  /* for declarations of disable()/enable() */
-#undef outportb /*don't use the macro because it has a bug in Turbo C++ 1.01*/
+#include "TM4C123.h"               /* for declarations of __disable_IRQ()/__enable_IRQ() */
 
 #include "sst.h"                      /* SST platform-independent interface */
 

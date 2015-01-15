@@ -47,6 +47,7 @@ void SST_schedule_(void);
 
                                             /* SST interrupt entry and exit */
 #define SST_ISR_ENTRY(pin_, isrPrio_) do { \
+    SST_INT_LOCK(); \
     (pin_) = SST_currPrio_; \
     SST_currPrio_ = (isrPrio_); \
     SST_INT_UNLOCK(); \
@@ -54,9 +55,9 @@ void SST_schedule_(void);
 
 #define SST_ISR_EXIT(pin_, EOI_command_) do { \
     SST_INT_LOCK(); \
-    (EOI_command_); \
     SST_currPrio_ = (pin_); \
-    SST_schedule_(); \
+    SST_INT_UNLOCK(); \
+    EOI_COMMAND(); \
 } while (0)
 
 
