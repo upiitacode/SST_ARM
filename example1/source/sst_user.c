@@ -1,6 +1,6 @@
 /*file:SST_user.c*/
 
-#include <stdlib> //needed  for exit(0);
+#include <stdlib.h> //needed  for exit(0);
 #include <sst.h>
 
 /*The use of this function is optional*/
