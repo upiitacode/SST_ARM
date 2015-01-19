@@ -53,11 +53,11 @@ void SST_schedule_(void);
     SST_INT_UNLOCK(); \
 } while (0)
 
-#define SST_ISR_EXIT(pin_, EOI_command_) do { \
+#define SST_ISR_EXIT(pin_, exit_command_) do { \
     SST_INT_LOCK(); \
     SST_currPrio_ = (pin_); \
-    SST_INT_UNLOCK(); \
-    EOI_COMMAND(); \
+	  SST_INT_UNLOCK(); \
+		(exit_command_); \
 } while (0)
 
 

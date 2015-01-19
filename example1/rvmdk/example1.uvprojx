@@ -359,7 +359,7 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
+            <uC99>1</uC99>
             <useXO>0</useXO>
             <VariousControls>
               <MiscControls></MiscControls>
@@ -422,6 +422,11 @@
               <FileName>sst_user.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\source\sst_user.c</FilePath>
+            </File>
+            <File>
+              <FileName>interrupts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\interrupts.c</FilePath>
             </File>
           </Files>
         </Group>

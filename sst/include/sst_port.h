@@ -21,12 +21,11 @@
 #define SST_INT_LOCK()   __disable_irq()
 #define SST_INT_UNLOCK() __enable_irq()
 																					/*SST End of Interrupt Command*/		
-#define EOI_COMMAND() NVIC_SetPendingIRQ(PendSV_IRQn)
+
                                                /* maximum SST task priority */
 #define SST_MAX_PRIO     8
 
 #include "TM4C123.h"          /* for declarations of __disable/enable_irq() */
-
 #include "sst.h"                      /* SST platform-independent interface */
 
 #endif                                                        /* sst_port_h */
