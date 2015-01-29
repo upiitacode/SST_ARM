@@ -1,7 +1,7 @@
-INCLUDE_DIRS:= device/include cmsis/include 
-SOURCE_DIRS:= ../source device/source
+INCLUDE_DIRS:= device/include cmsis/include ../include ../../sst/include 
+SOURCE_DIRS:=  device/source ../source ../../sst/source
 
-CFILES:= main.c system_TM4C123.c
+CFILES:= system_TM4C123.c interrupts.c main.c mytask.c sst_user.c sst.c sst_port.c 
 ASM_FILES:= startup_ARMCM4.S
 
 
