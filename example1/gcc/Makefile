@@ -19,17 +19,20 @@ vpath %.o objects
 COBJECTS:= $(patsubst %.c,%.o,$(CFILES)) 
 ASMOBJECTS:= $(patsubst %.S,%.o,$(ASM_FILES))
 
-all: objects salida.elf 
+all: salida.elf 
 objects:
 	mkdir objects
-salida.elf: $(COBJECTS) $(ASMOBJECTS)
+salida.elf: objects $(COBJECTS) $(ASMOBJECTS)
 	$(CC) $(CFLAGS) -Ldevice -Tgcc_arm.ld objects/*.o  -o $@
 $(COBJECTS): %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o objects/$@
 $(ASMOBJECTS): %.o: %.S
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o objects/$@
-.PHONY:clean rebuild
+.PHONY:clean rebuild burn
 clean:
 	rm -f  *.elf
 	rm -fr objects
 rebuild: clean all
+burn: salida.elf
+	openocd -fboard/ek-tm4c123gxl.cfg -c"init" -c"reset" -c"reset halt" -c"flash write_image erase salida.elf 0x00 elf" -c"reset" -c"shutdown"
+
