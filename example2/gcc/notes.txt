@@ -1,0 +1,3 @@
+#to program device use 
+reset halt
+flash write_image erase <file> 0x00 elf
