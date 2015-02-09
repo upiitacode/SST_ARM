@@ -1,4 +1,4 @@
-#include <mytask.h>
+#include "mytask.h"
 #include "externalio.h"
 SSTEvent myTask_EQ[myTask_EVQL];
 

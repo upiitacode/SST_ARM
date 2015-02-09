@@ -1,5 +1,6 @@
 #include "sst_port.h"
 #include "mytask.h"
+#include "myOtherTask.h"
 
 #define ISR_TICK_ID	250
 #define ISR_GPIOF_ID	251
@@ -23,9 +24,9 @@ void GPIOF_Handler(void){
 	GPIOF->ICR=(0x1<<4);//clear previous interrupts events for GPIOF[4]
 	//User code
 	if(((GPIOF->DATA)&(0x1<<4))==0){
-		GPIOF->DATA=(0x1<<1)|(0x1<<2)|(0x1<<3);
+		SST_post(myOtherTask_ID,MOT_SIGNAL_BUTTONCHANGE,1);
 	}else{
-		GPIOF->DATA=0x0;
+		SST_post(myOtherTask_ID,MOT_SIGNAL_BUTTONCHANGE,0);
 	}
 	gpiof_counter++;
 	SST_ISR_EXIT(pin,(SCB->ICSR = SCB_ICSR_PENDSVSET_Msk));

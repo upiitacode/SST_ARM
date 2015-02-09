@@ -438,6 +438,11 @@
               <FileType>1</FileType>
               <FilePath>..\source\externalio.c</FilePath>
             </File>
+            <File>
+              <FileName>myOtherTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\myOtherTask.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
