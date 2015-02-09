@@ -47,7 +47,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>example1</OutputName>
+          <OutputName>example2</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -350,7 +350,7 @@
             <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
-            <OneElfS>1</OneElfS>
+            <OneElfS>0</OneElfS>
             <Strict>0</Strict>
             <EnumInt>0</EnumInt>
             <PlainCh>0</PlainCh>
@@ -427,6 +427,11 @@
               <FileName>interrupts.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\source\interrupts.c</FilePath>
+            </File>
+            <File>
+              <FileName>boardio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\source\boardio.c</FilePath>
             </File>
           </Files>
         </Group>
