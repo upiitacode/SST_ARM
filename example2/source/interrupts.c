@@ -10,7 +10,9 @@ int gpiof_counter;
 void SysTick_Handler(void){
 	int pin;
 	SST_ISR_ENTRY(pin,ISR_TICK_ID);
-	SST_post(myTask_ID,1,0);
+	if((tick_counter%10)==0){
+		SST_post(myTask_ID,1,0);
+	}
 	tick_counter++;
 	SST_ISR_EXIT(pin,(SCB->ICSR = SCB_ICSR_PENDSVSET_Msk));
 }

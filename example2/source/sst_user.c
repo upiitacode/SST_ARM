@@ -4,6 +4,7 @@
 #include <sst.h>
 #include "TM4C123.h"                    // Device header
 #include "boardio.h"
+#include "externalio.h"
 int idle_counter;
 /*The use of this function is optional*/
 /*It's implementation is required     */
@@ -28,16 +29,21 @@ void SST_start(void) {
 	NVIC_SetPriority(GPIOF_IRQn,0);//High priority
 	NVIC_EnableIRQ(PendSV_IRQn);//
 	NVIC_EnableIRQ(GPIOF_IRQn);
-	SysTick_Config(16000000);//Tick every second CLK=16Mhz/COUNT=16_000_000 
+	SysTick_Config(5000000);//Tick every 0.1 seconds CLK=50Mhz/COUNT=5_000_000 
 
 }
 /*....................................*/
+unsigned char ledH;
 void SST_onIdle(void) {	
 	//spare time
 	//do anithing you want 
 	//but do not loop 
 	//you may want to post some events anyway
 	//no time critical operations
+	if(!(idle_counter&(0xFFFF))){
+		ledH++;
+		ledsB_HighNibbleOuput(ledH);
+	}
 	idle_counter++;
 }
 /*....................................*/
