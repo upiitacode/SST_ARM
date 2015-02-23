@@ -5,6 +5,7 @@
 #include "TM4C123.h"                    // Device header
 #include "boardio.h"
 #include "externalio.h"
+#include "myOtherTask.h"
 int idle_counter;
 /*The use of this function is optional*/
 /*It's implementation is required     */
@@ -40,10 +41,14 @@ void SST_onIdle(void) {
 	//but do not loop 
 	//you may want to post some events anyway
 	//no time critical operations
+	SST_mutexLock(20);
 	if(!(idle_counter&(0xFFFF))){
 		ledH++;
+		SST_post(myOtherTask_ID,MOT_SIGNAL_BUTTONCHANGE,1);
+		NVIC_SetPendingIRQ(GPIOF_IRQn);
 		ledsB_HighNibbleOuput(ledH);
 	}
+	SST_mutexUnlock(20);
 	idle_counter++;
 }
 /*....................................*/
